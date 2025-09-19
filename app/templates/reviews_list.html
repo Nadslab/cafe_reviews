@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Reviews{% if user %} for {{ user }}{% endif %}</h1>
+
+  <form method="get">
+    <input name="user" placeholder="filter by username" value="{{ user or '' }}">
+    <button type="submit">Filter</button>
+  </form>
+
+  {% if not rows %}
+    <p>No reviews yet.</p>
+  {% else %}
+  <table>
+    <thead><tr><th>When</th><th>User</th><th>Cafe</th><th>Rating</th></tr></thead>
+    <tbody>
+      {% for created_at, username, cafe, rating in rows %}
+        <tr><td>{{ created_at }}</td><td>{{ username }}</td><td>{{ cafe }}</td><td>{{ rating }}/5</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+{% endblock %}

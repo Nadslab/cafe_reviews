@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>New review</h1>
+  <form method="post">
+    <input name="username" placeholder="username" required>
+    <input name="cafe_name" placeholder="cafe name" required>
+    <textarea name="description" placeholder="description" rows="4" required></textarea>
+    <input name="rating" placeholder="rating 1..5" required>
+    <input name="date_visited" placeholder="YYYY-MM-DD" required>
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}

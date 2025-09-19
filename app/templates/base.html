@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cafe Reviews</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 2rem; }
+      form input, form textarea, form select { display:block; margin:.4rem 0; width: min(40rem, 100%); }
+      .msg { color: #b00; margin:.4rem 0; }
+      table { border-collapse: collapse; }
+      td, th { padding:.4rem .6rem; border-bottom: 1px solid #ddd; }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('reviews_list') }}">All reviews</a> |
+      <a href="{{ url_for('new_review_form') }}">Add review</a>
+    </nav>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}<div class="msg">{{ m }}</div>{% endfor %}
+      {% endif %}
+    {% endwith %}
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
