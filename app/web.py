@@ -7,6 +7,10 @@ def create_app():
     app = Flask(__name__)
     app.secret_key = "dev-key"   # needed for flash messages
 
+    @app.get("/")
+    def home():
+        return redirect(url_for("reviews_list"))
+
     @app.get("/reviews")
     def reviews_list():
         user = request.args.get("user")  # optional filter
