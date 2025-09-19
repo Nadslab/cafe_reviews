@@ -1,6 +1,6 @@
 # cli.py
 from app import models
-from app import storage
+from app import storage_db as storage
 import sys
 
 def prompt_line(label: str) -> str:
